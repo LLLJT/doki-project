@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ishang.doki.dao.DloginDao">
+	<resultMap id="loginResultMap"
+		type="com.ishang.doki.model.SysUser">
+		<id property="id" column="id" />
+		<result property="username" column="username" />
+		<result property="password" column="password" />
+		<result property="uage" column="uage" />
+		<result property="usex" column="usex" />
+		<result property="utelephone" column="usex" />
+	</resultMap>
+	<select id="login" resultMap="loginResultMap">
+		select *
+		from user
+		WHERE username=#{username} AND password=#{password}
+
+	</select>
+
+	<insert id="register">
+		insert into user(username,password,uage,usex,utelephone)
+		values(#{username},#{password},#{uage},#{usex},#{utelephone})
+
+	</insert>
+
+
+</mapper>
